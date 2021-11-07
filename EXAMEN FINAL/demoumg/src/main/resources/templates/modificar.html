@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Datos del usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            <br/>
+            <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
+                        
+            <label for="id_depto">Id_Depto:</label>
+            <input type="text" name="id_depto" th:field="*{id_depto}"/>
+            <br/>            
+            <label for="id_profesion">Id_Profesion:</label>
+            <input type="text" name="id_profesion" th:field="*{id_profesion}"/>
+            <br/>            
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <br/>
+            <label for="correo_electronico">Correo_Electronico:</label>
+            <input type="email" name="correo_electronico" th:field="*{correo_electronico}"/>
+            <br/>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <label for="fecha_nacimiento">Fecha_Nacimiento:</label>
+            <input type="text" name="fecha_nacimiento" th:field="*{fecha_nacimiento}"/>
+            <br/>
+            <label for="longitud">Longitud:</label>
+            <input type="text" name="longitud" th:field="*{longitud}"/>
+            <br/>
+            <label for="latitud">Latitud:</label>
+            <input type="text" name="latitud" th:field="*{latitud}"/>
+            <br/>
+            <label for="fecha_registro">Fecha_Registro:</label>
+            <input type="text" name="fecha_registro" th:field="*{fecha_registro}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>            
+        </form>       
+    </body>
+</html>

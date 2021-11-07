@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Datos de la profesion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar2}" method="post" th:object="${profesion}">
+            <br/>
+            <input type="hidden" name="id_profesion" th:field="*{id_profesion}"/>
+                        
+            <label for="id_profesion">Id_Profesion:</label>
+            <input type="text" name="id_profesion" th:field="*{id_profesion}"/>
+            <br/>            
+            <label for="descripcion_profesion">Descripcion_Profesion:</label>
+            <input type="text" name="descripcion_profesion" th:field="*{descripcion_profesion}"/>
+            <br/> 
+            <input type="submit" name="guardar2" value="Guardar"/>
+            
+            
+            
+            
+            
+            <select id="catalogo" name="catalogo">
+                <option value="profesor">1 profesor</option>  
+                <option value="doctor">2  doctor</option>
+                <option value="chef">3  chef</option>
+                <option value="dentista">4  dentista</option>  
+                <option value="licenciado">5  licenciado</option>
+            </select>
+            
+        </form>       
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>EXAMEN FINAL</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>REGISTRO DE USUARIOS</h1>          
+        <a th:href="@{/agregar}">CREAR USUARIO</a>       
+        <br/>
+        <table border="1">
+            <tr>
+                <th>Id_Depto</th>
+                <th>Id_Profesion</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo_Electronico</th>
+                <th>Telefono</th>
+                <th>Fecha_Nacimiento</th>
+                <th>Longitud</th>
+                <th>Latitud</th>
+                <th>Fecha_Registro</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <!-- vamos a poner la lineas hacemos iteracion -->
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.id_depto}" >Mostrar Id_Depto</td>
+                <td th:text="${persona.id_profesion}" >Mostrar Id_Profesion</td>
+                <td th:text="${persona.nombre}" >Mostrar Nombre</td>
+                <td th:text="${persona.apellido}" >Mostrar Apellido</td>
+                <td th:text="${persona.correo_electronico}" >Mostrar Correo_Electronico</td> 
+                <td th:text="${persona.telefono}" >Mostrar Telefono</td> 
+                <td th:text="${persona.fecha_nacimiento}" >Mostrar Fecha_Nacimiento</td> 
+                <td th:text="${persona.longitud}" >Mostrar Longitud</td> 
+                <td th:text="${persona.latitud}" >Mostrar Latitud</td> 
+                <td th:text="${persona.fecha_registro}" >Mostrar Fecha_Registro</td> 
+                <td><a th:href="@{/editar/} + ${persona.id_usuario}" th:text="Editar"/></td>
+                <td><a th:href="@{/eliminar/} + ${persona.id_usuario}" th:text="Eliminar"/></td>
+            </tr>
+        </table>
+        
+        
+        <h1>REGISTRO DE PROFESIONES</h1>          
+        <a th:href="@{/agregar2}">CREAR PROFESION</a>       
+        <br/>
+        <table border="1">
+            <tr>
+                <th>Id_Profesion</th>
+                <th>Descripcion_Profesion</th>               
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <!-- vamos a poner la lineas hacemos iteracion -->
+            <tr th:each="pro : ${profes}">
+                <td th:text="${pro.id_profesion}" >Mostrar Id_Profesion</td>
+                <td th:text="${pro.descripcion_profesion}" >Mostrar Descripcion_Profesion</td>               
+                <td><a th:href="@{/editar2/} + ${pro.id_profesion}" th:text="Editar"/></td>
+                <td><a th:href="@{/eliminar2/} + ${pro.id_profesion}" th:text="Eliminar"/></td>
+            </tr>
+        </table>
+        
+        
+        <h1>REGISTRO DE DEPARTAMENTOS</h1>                
+        <br/>
+        <table border="1">
+            <tr>
+                <th>Id_Departamento</th>
+                <th>Descripcion_Departamento</th>               
+            </tr>
+            <!-- vamos a poner la lineas hacemos iteracion -->
+            <tr th:each="de : ${deptos}">
+                <td th:text="${de.id_depto}" >Mostrar Id_Departamento</td>
+                <td th:text="${de.descripcion_depto}" >Mostrar Descripcion_Departamento</td>                              
+            </tr>
+        </table>
+        
+        
+        
+    </body>
+</html>
